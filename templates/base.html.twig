@@ -13,4 +13,40 @@
     <body>
         {% block body %}{% endblock %}
     </body>
+    {% block javascripts %}
+    
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script>
+            window.flashMessages = [];
+            {% for type, messages in app.flashes %}
+                {% for message in messages %}
+                    window.flashMessages.push({ statut: '{{ type }}', message: '{{ message }}' });
+                {% endfor %}
+            {% endfor %}
+        </script>
+
+        <script>
+        
+        window.flashMessages.forEach(flashMessage => {
+            const { statut, message } = flashMessage;
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                width: 600,
+                timer: 10000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            });
+            Toast.fire({
+                icon: statut,
+                title: message
+            });
+        });
+        </script>
+    {% endblock %}
 </html>
