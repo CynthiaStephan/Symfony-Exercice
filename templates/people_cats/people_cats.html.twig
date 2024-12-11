@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cats Lovers!{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="./cats.css">
+{% endblock %}
+
+{% block body %}
+    <h1>Cats Lovers List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Cat's name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
