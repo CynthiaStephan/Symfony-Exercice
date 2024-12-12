@@ -15,8 +15,15 @@
             </tr>
         </thead>
         <tbody>
-            {% for user in users %}
-                
+            {% for owner in catOwner %}
+            <tr>
+                <th scope="row">{{ owner.name}} </th>
+                <td>
+                {% for cats in owner.catNames %}
+                    {{ cats }}
+                {% endfor %}
+                </td>
+            </tr>
             {% endfor %}
         </tbody>
     </table>

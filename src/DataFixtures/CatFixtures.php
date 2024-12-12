@@ -13,7 +13,7 @@ class CatFixtures extends Fixture{
         for ($i = 0; $i < 15; $i++){
 
             $cat = new Cat();
-            $cat->setName($faker->name);
+            $cat->setName($faker->firstName());
             $cat->setAge($faker->numberBetween(0,20));
             $cat->setRace($faker->randomElement(['Persan','American shorthair','Bengal','Himalayan']));
             $cat->setColor($faker->randomElement(['Black', 'White', 'Ginger', 'Calico', 'Grey']));

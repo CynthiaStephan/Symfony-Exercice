@@ -14,7 +14,7 @@ class HouseFixtures extends Fixture{
 
             $house = new House();
 
-            $house->setAdress($faker->address);
+            $house->setAdress($faker->address());
             $manager->persist($house);
         }
 
